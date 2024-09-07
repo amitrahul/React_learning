@@ -10,7 +10,7 @@ const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   return (
     <>
-      {/* <TodoList todos={todos} /> */}
+      <TodoList todos={todos} />
       <h4>todo working area</h4>
       <input
         type="text"
@@ -22,7 +22,7 @@ const Todo = () => {
         Add todo
       </button>
       <br />
-      <TodoList todos={todoList} />
+      {/* <TodoList todos={todoList} /> */}
     </>
   );
 };

@@ -1,5 +1,7 @@
 function TodoList({ todos }) {
-  const TodoListdata = todos.map((todo) => <li key={todo.id}>{todo.data}</li>);
+  //   const TodoListdata = todos.map((todo) => (
+  //     <li key={todo.data}>{todo.data}</li>
+  //   ));
   return (
     <ul>
       {/* method1 to render array list data */}
@@ -8,7 +10,11 @@ function TodoList({ todos }) {
       ))} */}
 
       {/* method 2 to render array list data */}
-      {TodoListdata}
+      {/* {TodoListdata} */}
+
+      {todos.map((todo, i) => (
+        <li key={i}>{todo}</li>
+      ))}
     </ul>
   );
 }

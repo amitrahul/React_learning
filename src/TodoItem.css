@@ -5,3 +5,7 @@
 .todo_not_done {
   text-decoration: none;
 }
+.todoItem-wrapper {
+  display: flex;
+  gap: 30px;
+}

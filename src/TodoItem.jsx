@@ -24,7 +24,7 @@ const TodoItem = ({ item }) => {
     // <li key={id} onClick={(e) => handleClick({ item })}>
     //   {item}
     // </li>
-    <div>
+    <div className="todoItem-wrapper">
       <li>
         <span className={isFinished ? "todo_done" : "todo_not_done"}>
           {item}{" "}

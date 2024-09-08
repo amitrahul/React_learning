@@ -11,7 +11,7 @@ const Todo = () => {
   return (
     <>
       <TodoList todos={todos} />
-      <h4>todo working area</h4>
+      {/* <h4>todo working area</h4>
       <input
         type="text"
         placeholder="new todo ..."
@@ -21,7 +21,7 @@ const Todo = () => {
       <button onClick={() => setTodoList([...todoList, todoText])}>
         Add todo
       </button>
-      <br />
+      <br /> */}
       {/* <TodoList todos={todoList} /> */}
     </>
   );

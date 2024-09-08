@@ -4,8 +4,10 @@
 import { useState } from "react";
 import "./TodoItem.css";
 // };
-const TodoItem = ({ item }) => {
-  const [isFinished, setIsFinished] = useState(false);
+const TodoItem = ({ item, deleteTodoItem, editTodoItem }) => {
+  //   const [isFinished, setIsFinished] = useState(false);
+  const [isEditting, setIsEditting] = useState(false);
+  const [newTodoData, setNewTodoData] = useState(item);
   return (
     /* adding parenthesis {} in callback function of onClick to wite multiple
     code in it. */
@@ -26,12 +28,30 @@ const TodoItem = ({ item }) => {
     // </li>
     <div className="todoItem-wrapper">
       <li>
-        <span className={isFinished ? "todo_done" : "todo_not_done"}>
+        {/* <span className={isFinished ? "todo_done" : "todo_not_done"}>
           {item}{" "}
-        </span>
+        </span> */}
+        {isEditting ? (
+          <input
+            type="text"
+            value={newTodoData}
+            onChange={(e) => setNewTodoData(e.target.value)}
+          />
+        ) : (
+          <span>{newTodoData}</span>
+        )}
       </li>
-      <button onClick={() => setIsFinished(!isFinished)}>
+      {/* <button onClick={() => setIsFinished(!isFinished)}>
         {isFinished ? "Redo" : "done"}
+      </button> */}
+      <button onClick={() => deleteTodoItem()}>Done</button>
+      <button
+        onClick={() => {
+          setIsEditting(!isEditting);
+          editTodoItem(newTodoData);
+        }}
+      >
+        {isEditting ? "Save" : "Edit"}
       </button>
     </div>
   );

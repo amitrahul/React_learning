@@ -18,10 +18,23 @@ function TodoList({ todos }) {
   const handleTodoList = () => {
     setTodoItems([
       ...todoItems,
-      { data: todoInputText, id: new Date().getTime },
+      { data: todoInputText, id: Math.random() * 10 },
     ]);
     setTodoInputText("");
   };
+  /* implement filtered todo item */
+  const handleDeleteTodoItem = (id) => {
+    const filteredTodo = todoItems.filter((todo) => todo.id !== id);
+    setTodoItems(filteredTodo);
+  };
+  /* Implement edit function */
+  function handleEditTodoItem(id, newTodo) {
+    const updatedTodoItem = todoItems.map((todo) => {
+      if (todo.id === id) todo.data = newTodo;
+      return todo;
+    });
+    setTodoItems(updatedTodoItem);
+  }
   return (
     <>
       {/* method1 to render array list data */}
@@ -45,7 +58,14 @@ function TodoList({ todos }) {
       <button onClick={handleTodoList}>add todo Item</button>
       <ul>
         {todoItems.map((todo) => (
-          <TodoItem item={todo.data} key={todo.id} />
+          <TodoItem
+            item={todo.data}
+            key={todo.id}
+            deleteTodoItem={() => handleDeleteTodoItem(todo.id)}
+            editTodoItem={(newtodoData) =>
+              handleEditTodoItem(todo.id, newtodoData)
+            }
+          />
         ))}
       </ul>
     </>

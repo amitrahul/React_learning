@@ -1,0 +1,7 @@
+.todo_done {
+  text-decoration: line-through;
+}
+
+.todo_not_done {
+  text-decoration: none;
+}

@@ -5,7 +5,7 @@ function TodoList({ todos }) {
   //   ));
 
   const todoListArr = todos.map((todo) => (
-    <TodoItem item={todo.data} id={todo.id} />
+    <TodoItem item={todo.data} key={todo.id} />
   ));
   return (
     <ul>
